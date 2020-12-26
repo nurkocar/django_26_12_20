@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action = 'https://www.google.com/search', method="GET">
+        <input type="text", name="q", placeholder="">
+        <input type="submit" value="Search">
+    </form> -->
+
+    <form action = '.', method="GET">
+        {{ studentForm }}
+    </form>
+    <h1>Hello, this is home page.</h1>
+    {{ title|title }} <br>
+    {{ title|safe }} <br>
+    {{ title|add:' is the best' }} <br>
+    {{ dict_1 }} <br>
+    {% for i in my_list %} 
+        {% if i == 3 %} 
+            <p>Bu sayı 3 e eşit</p>
+        {% else %}
+            {{ i }} <br>
+        {% endif %}
+    {% endfor %}
+    {{ cat }}
+</body>
+</html>

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import StudentForm
+from .models import Student
 
 def home_view(request):
     # print(request.GET.get("q"))
@@ -8,16 +9,30 @@ def home_view(request):
     # print(request.user)
     # print(request.path)
     # print(request.method)
-    form = StudentForm()
-    my_context = {
-        'title' : '<b>clarusway</b>',
-        'dict1' : {'django': 'best framework'},
-        'my_list': [1,2,3,4,5],
-        'cat' : 'mavis',
-        'studentForm' : form
-    }
-    
-    return render(request, 'fscohort/home.html', my_context)
+    # form = StudentForm()
+    # my_context = {
+    #     'title': '<b>clarusway</b>',
+    #     'dict_1': {'djang': 'best framework'},
+    #     'my_list': [2, 3, 4, 5],
+    #     'cat': 'maviş',
+    #     'student': form
+    # }
+    return render(request, "fscohort/home.html")
 
-def about_view(request):
-    return HttpResponse("<h1>Hi, this is about page.</h1>")
+# Create your views here.
+
+
+def student_list(request):
+    students = Student.objects.all()
+    context = {
+        'students': students
+    }
+    return render(request, "fscohort/student_list.html", context)
+
+def student_add(request):
+    form = Student()
+    context = {
+        
+    }
+    return render(request, 'fscohort/student_add.html', context)
+    
